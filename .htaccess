@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# 1. Redireccionar de WWW a no-WWW y forzar HTTPS
+RewriteCond %{HTTP_HOST} ^www\.jordan\.com\.py [NC,OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://jordan.com.py/$1 [L,R=301]
+
+# Opcional: Manejo de archivos que no existen (si fuera necesario)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule . index.html [L]
